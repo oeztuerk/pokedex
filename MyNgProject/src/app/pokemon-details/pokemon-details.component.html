@@ -1,0 +1,49 @@
+<h3>Introducing: {{name}}</h3>
+
+<img src = "{{sprite}}">
+<div *ngIf="!attributesLoaded" class="loader"></div>
+
+<div class="details">
+	<div>
+		<h2>Order number</h2>
+		<span>{{order}}</span><br>
+		<div *ngIf="!attributesLoaded" class="loader"></div>
+
+		<h2>Abilities</h2>
+		<div *ngFor="let ability of abilities">
+			<li>{{ ability.ability.name }}</li>
+		</div><br>
+		<div *ngIf="!attributesLoaded" class="loader"></div>
+
+		<h2>Types</h2>
+		<div *ngFor="let type of types">
+			<li>{{ type.type.name }}</li>
+		</div><br>
+		<div *ngIf="!attributesLoaded" class="loader"></div>
+	</div>
+
+	<div class="middleColumn">
+		<h2>Stats</h2>
+		<div *ngFor="let stat of stats">
+			<li>{{ stat.stat.name }}: {{stat.base_stat}}</li>
+		</div><br>
+		<div *ngIf="!attributesLoaded" class="loader"></div>
+
+		<h2>Moves</h2>
+		<div class="list">
+			<div *ngFor="let move of moves">
+				<li>{{ move.move.name }}</li>
+			</div>
+		</div><br>
+		<div *ngIf="!attributesLoaded" class="loader"></div>
+	</div>
+
+	<div>
+		<h2>Evolution Chain</h2>
+		<li *ngIf="evolvesFrom && evolutionLoaded">Evolves from {{evolvesFrom}}</li>
+		<li *ngIf="!evolvesFrom && evolutionLoaded">Evolves from no one</li>
+		<li *ngIf="evolvesTo && evolutionLoaded">Evolves to {{evolvesTo}}</li>
+		<li *ngIf="!evolvesTo && evolutionLoaded">Evolves to nothing</li><br>
+		<div *ngIf="!evolutionLoaded" class="loader"></div>
+	</div>
+</div>

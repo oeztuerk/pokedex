@@ -1,0 +1,12 @@
+<h3 style="padding-left:20px">Click any Pokemon name to view details!</h3>
+
+<div *ngIf="!loaded" class="loader"></div>
+
+<div class="list">
+	<div class="pokemon-item" *ngFor="let pokemon of pokemons">
+		<a [title]="pokemon.name + ' details'" [routerLink]="['/pokemons', pokemon.name]"
+			(click)="selectPokemon(pokemon.name)">
+			{{ pokemon.name }}
+		</a>
+	</div>
+</div>
